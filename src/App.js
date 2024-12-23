@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-// Asegúrate de que esto apunte a tu servidor backend
-const socket = io('http://localhost:3000', {
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://18.206.174.179:3000'; //url de backend
+const socket = io(BACKEND_URL, {
   transports: ['websocket'],
   cors: {
-    origin: "http://localhost:3001"
+    origin: "http://18.206.174.179:3001" //url de backend
   }
 });
 

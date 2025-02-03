@@ -13,11 +13,9 @@ RUN npm install
 # Copia el resto de los archivos de la aplicación
 COPY . .
 
-# Construye la aplicación
-RUN npm run build
-
-# Instala serve para servir la aplicación
-RUN npm install -g serve
+# Construye la aplicación y instala serve
+RUN npm run build && \
+    npm install -g serve
 
 # Expone el puerto 3001
 EXPOSE 3001
